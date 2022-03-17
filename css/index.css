@@ -1,0 +1,275 @@
+/* GLOBAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #717171;
+}
+.section{
+    padding: 75px 0;
+}
+.title{
+    color: #ec7532;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #d8d8d8;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    margin-bottom: 40px;
+}
+.title::after{
+    content: '';
+    background: linear-gradient(to right,#fbbd61,#ec7532);
+    width: 125px;
+    height: 4px;
+    margin-top: 20px;
+    display: block;
+}
+/* line style */
+.line::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    /*  linear-gradient(1,2,3)
+    Giá trị 1
+    hướng trải màu: trên dưới trái phải
+    to right: trái quả phải
+    to bottom: từ trên xuống
+    
+    Phụ thuộc vào hướng trải màu
+    Giá trị thứ 2: màu bắt đầu
+    Giá trị thứ 3: màu kết thúc*/
+
+    background: linear-gradient(to right,#fbbd61,#ec7532 );
+    box-shadow: 0 0 20px 0 #fbbd61;
+    display: block;
+    transition: all 0.5s;
+}
+.line:hover::after{
+    width: 100%;
+}
+.line.active::after{
+    width: 100%;
+}
+/* HEADER */
+header{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+header p{
+    font-size: 14px;
+    font-weight: 700;
+}
+#movieNavBar .navbar-nav{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+#movieNavBar .navbar-nav .nav-link{
+    color: white;
+    letter-spacing: 3px;
+    line-height: 0.8em;
+    padding: 20px 24px;
+}
+#headerFixed{
+    background-color: #101010;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transform: translate(-50%,-100%);
+    transition: transform 0.5s;
+}
+/* CAROUSEL */
+#carouselMovie .carousel-item .carousel-caption{
+    text-align: left;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/* :first-child: thứ tự trước, loại thẻ
+:first-of-typeL loại thẻ trước, thứ tự sau */
+#carouselMovie .carousel-item .carousel-caption p:first-of-type{
+    color: #fbbd61;
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    margin: 0;
+    animation-delay:0.2s;
+}
+#carouselMovie .carousel-item .carousel-caption p:last-of-type{
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+}
+#carouselMovie .carousel-item .carousel-caption h2{
+    font-size: 3.25rem;
+    letter-spacing: 2px;
+
+}
+.movieCarousel__trailer{
+    animation-delay: 0.5s;
+}
+.movieCarousel__trailer>span{
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: inline-block;
+}
+.movieCarousel__trailer button{
+    padding: 12px 24px;
+    border:none;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: white;
+    background: linear-gradient(to right, #fbbd61, #ec7532);
+    margin-left: 8px;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+}
+.movieCarousel__trailer button::before{
+    content: '';
+    width: 110%;
+    height: 100%;
+    background-color: #ec7532;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: skewX(30deg) translateX(-110%);
+    transition: all 0.5s;
+}
+/* transform: skewX(30deg) translateX(-10px); */
+.movieCarousel__trailer button:hover::before{
+    transform: skewX(30deg) translateX(-10px);
+}
+.movieCarousel__trailer button span{
+    position: relative;
+}
+.movieCarousel__trailer button:hover{
+    color: white;
+}
+#carouselMovie .carousel-indicators{
+    justify-content: flex-start;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#carouselMovie .carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    opacity: 1;
+    box-sizing: border-box;
+}
+#carouselMovie .carousel-indicators li.active{
+    background-color: #fff;
+}
+.movieCarousel__overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, black, transparent)
+}
+
+/* NEW IN */
+.newIn__title{
+    text-align: center;
+}
+.newIn__title h3{
+    font-size: 18px;
+    color: #4a4a4a;
+    margin: 1rem 0;
+}
+.newIn__title i{
+    color: #fbbd61;
+}
+.newIn__img{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.newIn__overlay{
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom,#fbbd61, #ec7532 );
+    transform: skewX(30deg) translateX(-130%);
+    opacity: 0.9;
+    transition: all 0.5s;
+}
+.newIn__img:hover .newIn__overlay{
+    transform: skewX(30deg) translateX(-30%);
+}
+.newIn_play{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.newIn_play i{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border: 2px solid white;
+    border-radius: 50%;
+    text-align: center;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+.newIn_play i:hover{
+    transform: scale(0.9);
+}
+.newIn_play a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 4px;
+    display: block;
+    margin: 1rem 0;
+}
+.newIn_play p{
+    color: white;
+}
+.newIn__img:hover .newIn_play{
+    opacity: 1;
+}
+/* SHOW TIME */
+.showTime .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    border: none;
+}
+.showTime .nav-tabs .nav-link{
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.showTime .nav-tabs .nav-link span{
+    padding: 15px 30px;
+    display: block;
+}
+.showTime .nav-tabs .nav-item{
+    margin-bottom: 0;
+}
